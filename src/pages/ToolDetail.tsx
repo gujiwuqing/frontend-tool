@@ -68,15 +68,15 @@ export function ToolDetail() {
   };
 
   return (
-    <Layout style={{ minHeight: '100vh', background: '#f7f9fc' }}>
+    <Layout style={{ minHeight: '100vh', background: 'var(--bg-color)' }}>
       <Layout.Sider 
         theme="light" 
         width={240} 
         style={{ 
           padding: '24px 0',
-          borderRight: '1px solid #e6e9f0',
-          boxShadow: '1px 0 8px rgba(0,0,0,0.02)',
-          background: '#fff',
+          borderRight: '1px solid var(--border-color)',
+          boxShadow: 'var(--card-shadow)',
+          background: 'var(--bg-color)',
           position: 'fixed',
           height: '100vh',
           left: 0,
@@ -86,11 +86,11 @@ export function ToolDetail() {
       >
         <div style={{ 
           padding: '0 24px 20px', 
-          borderBottom: '1px solid #e6e9f0',
+          borderBottom: '1px solid var(--border-color)',
           marginBottom: '16px',
           fontSize: '20px',
           fontWeight: 600,
-          color: '#1a1a1a'
+          color: 'var(--text-color)'
         }}>
           工具列表
         </div>
@@ -113,7 +113,7 @@ export function ToolDetail() {
             }}>{tool.icon}</span>,
             label: <span style={{ 
               fontSize: '14px',
-              color: '#4a4a4a',
+              color: 'var(--text-color)',
               transition: 'color 0.3s'
             }}>{tool.name}</span>,
             style: {
@@ -127,13 +127,13 @@ export function ToolDetail() {
       </Layout.Sider>
       <Layout.Content style={{ 
         padding: '32px 32px 32px 272px',
-        background: '#f7f9fc',
+        background: 'var(--bg-color)',
         minHeight: '100vh'
       }}>
         <Card
           style={{ 
             borderRadius: '12px',
-            boxShadow: '0 2px 12px rgba(0,0,0,0.03)',
+            boxShadow: 'var(--card-shadow)',
             border: 'none',
             transition: 'box-shadow 0.3s ease'
           }}
