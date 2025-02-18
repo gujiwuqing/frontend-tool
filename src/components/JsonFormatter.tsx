@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Input, Button, Row, Col, Space, message } from 'antd';
+import { CopyOutlined, EyeOutlined } from '@ant-design/icons';
 
 const { TextArea } = Input;
 
@@ -41,6 +42,53 @@ export function JsonFormatter() {
     message.success('已清空');
   };
 
+  const copyOutput = () => {
+    if (!outputValue.trim()) {
+      message.warning('没有可复制的内容');
+      return;
+    }
+    navigator.clipboard.writeText(outputValue)
+      .then(() => message.success('复制成功'))
+      .catch(() => message.error('复制失败'));
+  };
+
+  const previewJson = () => {
+    try {
+      if (!outputValue.trim()) {
+        message.warning('没有可预览的内容');
+        return;
+      }
+      // 尝试解析JSON以确保格式正确
+      JSON.parse(outputValue);
+      // 在新窗口中打开预览
+      const previewWindow = window.open('', '_blank');
+      if (previewWindow) {
+        previewWindow.document.write(`
+          <html>
+            <head>
+              <title>JSON预览</title>
+              <style>
+                body { 
+                  background-color: #f0f0f0;
+                  padding: 20px;
+                  font-family: monospace;
+                  white-space: pre-wrap;
+                  word-wrap: break-word;
+                }
+              </style>
+            </head>
+            <body>${outputValue}</body>
+          </html>
+        `);
+        previewWindow.document.close();
+      } else {
+        message.error('无法打开预览窗口，请检查浏览器设置');
+      }
+    } catch (error) {
+      message.error('预览失败，JSON格式无效');
+    }
+  };
+
   return (
     <div>
       <Row gutter={[16, 16]}>
@@ -48,6 +96,8 @@ export function JsonFormatter() {
           <Space>
             <Button type="primary" onClick={formatJson}>格式化</Button>
             <Button onClick={compressJson}>压缩</Button>
+            <Button icon={<EyeOutlined />} onClick={previewJson}>预览</Button>
+            <Button icon={<CopyOutlined />} onClick={copyOutput}>复制</Button>
             <Button onClick={clearAll}>清空</Button>
           </Space>
         </Col>
