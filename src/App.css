@@ -32,7 +32,10 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.ant-layout {
+.ant-layout,
+.ant-layout-sider,
+.ant-layout-content,
+.ant-layout-header {
   background: var(--bg-color) !important;
 }
 
@@ -60,6 +63,10 @@ body {
   background: var(--bg-color) !important;
   border-color: var(--border-color) !important;
   box-shadow: var(--card-shadow) !important;
+}
+
+.ant-card-body {
+  background: var(--bg-color) !important;
 }
 
 .ant-input,

@@ -68,7 +68,7 @@ export function ToolDetail() {
   };
 
   return (
-    <Layout style={{ minHeight: '100vh', background: 'var(--bg-color)' }}>
+    <Layout style={{ minHeight: '100vh' }}>
       <Layout.Sider 
         theme="light" 
         width={240} 
@@ -76,7 +76,6 @@ export function ToolDetail() {
           padding: '24px 0',
           borderRight: '1px solid var(--border-color)',
           boxShadow: 'var(--card-shadow)',
-          background: 'var(--bg-color)',
           position: 'fixed',
           height: '100vh',
           left: 0,
@@ -127,7 +126,6 @@ export function ToolDetail() {
       </Layout.Sider>
       <Layout.Content style={{ 
         padding: '32px 32px 32px 272px',
-        background: 'var(--bg-color)',
         minHeight: '100vh'
       }}>
         <Card

@@ -36,7 +36,7 @@ function App() {
         zIndex: 1000,
         height: '64px',
         padding: '0 24px',
-        background: isDarkMode ? '#141414' : '#fff',
+
         borderBottom: `1px solid ${isDarkMode ? '#303030' : '#f0f0f0'}`,
         display: 'flex',
         alignItems: 'center',
