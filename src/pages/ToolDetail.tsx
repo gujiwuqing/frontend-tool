@@ -7,7 +7,7 @@ import { HtmlToMarkdown } from '../components/HtmlToMarkdown';
 import { JsonToTypeScript } from '../components/JsonToTypeScript';
 import { MarkdownToHtml } from '../components/MarkdownToHtml';
 
-interface ToolDetailProps {
+interface ToolDetailProps extends Record<string, string | undefined> {
   id: string;
 }
 

@@ -18,7 +18,7 @@ export function HtmlToMarkdown() {
       // 首先净化HTML以防止XSS攻击
       const cleanHtml = DOMPurify.sanitize(inputValue);
       // 将HTML转换为Markdown
-      const markdown = marked.parse(cleanHtml, { mangle: false, headerIds: false });
+      const markdown = marked.parse(cleanHtml) as string;
       setOutputValue(markdown);
       message.success('转换成功');
     } catch (error) {

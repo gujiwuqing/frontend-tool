@@ -14,7 +14,7 @@ export function MarkdownToHtml() {
         message.warning('请输入需要转换的Markdown内容');
         return;
       }
-      const html = marked.parse(inputValue);
+      const html = marked.parse(inputValue) as string;
       setOutputValue(html);
       message.success('转换成功');
     } catch (error) {
