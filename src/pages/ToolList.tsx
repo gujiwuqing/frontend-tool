@@ -45,6 +45,12 @@ const tools: Tool[] = [
     description: "将Markdown内容转换为HTML格式",
     icon: "📄",
   },
+  {
+    id: "javascript-formatter",
+    name: "JavaScriptFormatter",
+    description: "JavaScript格式化/压缩",
+    icon: "📄",
+  },
 ];
 
 export function ToolList() {

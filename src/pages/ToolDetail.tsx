@@ -6,6 +6,7 @@ import { UrlEncoder } from '../components/UrlEncoder';
 import { HtmlToMarkdown } from '../components/HtmlToMarkdown';
 import { JsonToTypeScript } from '../components/JsonToTypeScript';
 import { MarkdownToHtml } from '../components/MarkdownToHtml';
+import { JavaScriptFormatter } from '../components/JavaScriptFormatter';
 
 interface ToolDetailProps extends Record<string, string | undefined> {
   id: string;
@@ -42,6 +43,11 @@ const tools = [
     name: 'Markdown转HTML',
     icon: '📄',
   },
+  {
+    id: 'javascript-formatter',
+    name: 'JavaScript 格式化工具',
+    icon: '📦',
+  },
 ];
 
 export function ToolDetail() {
@@ -62,6 +68,8 @@ export function ToolDetail() {
         return <JsonToTypeScript />;
       case 'markdown-to-html':
         return <MarkdownToHtml />;
+      case 'javascript-formatter':
+        return <JavaScriptFormatter />;
       default:
         return <div>未找到该工具</div>;
     }
