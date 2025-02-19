@@ -7,6 +7,11 @@ import { HtmlToMarkdown } from '../components/HtmlToMarkdown';
 import { JsonToTypeScript } from '../components/JsonToTypeScript';
 import { MarkdownToHtml } from '../components/MarkdownToHtml';
 import { JavaScriptFormatter } from '../components/JavaScriptFormatter';
+import { CssFormatter } from '../components/CssFormatter';
+import { RegexTester } from '../components/RegexTester';
+import { CodeToImage } from '../components/CodeToImage';
+import { ColorConverter } from '../components/ColorConverter';
+import { CodeDiff } from '../components/CodeDiff';
 
 interface ToolDetailProps extends Record<string, string | undefined> {
   id: string;
@@ -48,7 +53,33 @@ const tools = [
     name: 'JavaScript 格式化工具',
     icon: '📦',
   },
+  {
+    id: 'css-formatter',
+    name: 'CSS 格式化工具',
+    icon: '🎨',
+  },
+  {
+    id: 'regex-tester',
+    name: '正则表达式测试工具',
+    icon: '🔍',
+  },
+  {
+    id: 'code-to-image',
+    name: '代码转图片工具',
+    icon: '📸',
+  },
+  {
+    id: 'color-converter',
+    name: '颜色格式转换器',
+    icon: '🎨',
+  },
+  {
+    id: 'code-diff',
+    name: '代码对比工具',
+    icon: '🔄',
+  },
 ];
+
 
 export function ToolDetail() {
   const { id } = useParams<ToolDetailProps>();
@@ -70,6 +101,16 @@ export function ToolDetail() {
         return <MarkdownToHtml />;
       case 'javascript-formatter':
         return <JavaScriptFormatter />;
+      case 'css-formatter':
+        return <CssFormatter />;
+      case 'regex-tester':
+        return <RegexTester />;
+      case 'code-to-image':
+        return <CodeToImage />;
+      case 'color-converter':
+        return <ColorConverter />;
+      case 'code-diff':
+        return <CodeDiff />;
       default:
         return <div>未找到该工具</div>;
     }
@@ -101,57 +142,32 @@ export function ToolDetail() {
         }}>
           工具列表
         </div>
+        <div style={{ 
+          padding: '0 16px',
+          marginBottom: '16px',
+          fontSize: '18px',
+          fontWeight: 'bold',
+          color: '#1890ff'
+        }}>
+          开发工具箱
+        </div>
         <Menu
           mode="inline"
           selectedKeys={[id || '']}
-          style={{ 
-            height: 'calc(100vh - 80px)',
-            border: 'none',
-            padding: '0 12px'
-          }}
-          className="tool-menu"
-          items={tools.map((tool) => ({
+          style={{ border: 'none' }}
+          onClick={({ key }) => navigate(`/tool/${key}`)}
+          items={tools.map(tool => ({
             key: tool.id,
-            icon: <span style={{ 
-              fontSize: '16px',
-              marginRight: '8px',
-              opacity: 0.85,
-              transition: 'opacity 0.3s'
-            }}>{tool.icon}</span>,
-            label: <span style={{ 
-              fontSize: '14px',
-              color: 'var(--text-color)',
-              transition: 'color 0.3s'
-            }}>{tool.name}</span>,
-            style: {
-              margin: '4px 0',
-              borderRadius: '8px',
-              transition: 'all 0.3s ease'
-            },
-            onClick: () => navigate(`/tool/${tool.id}`)
+            icon: <span>{tool.icon}</span>,
+            label: tool.name
           }))}
         />
       </Layout.Sider>
-      <Layout.Content style={{ 
-        padding: '32px 32px 32px 272px',
-        minHeight: '100vh'
-      }}>
-        <Card
-          style={{ 
-            borderRadius: '12px',
-            boxShadow: 'var(--card-shadow)',
-            border: 'none',
-            transition: 'box-shadow 0.3s ease'
-          }}
-          bodyStyle={{ 
-            padding: '32px',
-            minHeight: '600px'
-          }}
-          hoverable
-        >
+      <Layout style={{ marginLeft: 240, padding: '24px', background: '#fff' }}>
+        <Card bordered={false}>
           {renderToolContent()}
         </Card>
-      </Layout.Content>
+      </Layout>
     </Layout>
   );
 }

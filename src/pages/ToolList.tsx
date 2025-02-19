@@ -47,9 +47,39 @@ const tools: Tool[] = [
   },
   {
     id: "javascript-formatter",
-    name: "JavaScriptFormatter",
+    name: "JavaScript 格式化工具",
     description: "JavaScript格式化/压缩",
-    icon: "📄",
+    icon: "📦",
+  },
+  {
+    id: "css-formatter",
+    name: "CSS 格式化工具",
+    description: "CSS代码格式化和压缩，支持代码预览",
+    icon: "🎨",
+  },
+  {
+    id: "regex-tester",
+    name: "正则表达式测试",
+    description: "正则表达式在线测试工具，支持多行匹配",
+    icon: "🔍",
+  },
+  {
+    id: "code-to-image",
+    name: "代码转图片工具",
+    description: "将代码片段转换为美观的图片格式",
+    icon: "📸",
+  },
+  {
+    id: "color-converter",
+    name: "颜色格式转换器",
+    description: "在不同颜色格式之间进行转换，支持RGB、HEX、HSL等",
+    icon: "🎨",
+  },
+  {
+    id: "code-diff",
+    name: "代码对比工具",
+    description: "对比两段代码的差异，支持多种编程语言",
+    icon: "🔄",
   },
 ];
 
