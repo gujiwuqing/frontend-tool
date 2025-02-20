@@ -142,13 +142,20 @@ export function ToolDetail() {
         }}>
           工具列表
         </div>
-        <div style={{ 
-          padding: '0 16px',
-          marginBottom: '16px',
-          fontSize: '18px',
-          fontWeight: 'bold',
-          color: '#1890ff'
-        }}>
+        <div 
+          style={{ 
+            padding: '0 16px',
+            marginBottom: '16px',
+            fontSize: '18px',
+            fontWeight: 'bold',
+            color: '#1890ff',
+            cursor: 'pointer',
+            transition: 'opacity 0.3s ease'
+          }}
+          onClick={() => navigate('/')}
+          onMouseEnter={(e) => e.currentTarget.style.opacity = '0.8'}
+          onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
+        >
           开发工具箱
         </div>
         <Menu
